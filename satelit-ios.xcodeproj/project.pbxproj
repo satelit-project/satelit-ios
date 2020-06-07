@@ -20,6 +20,7 @@
 		9B6063B82470D6DB008C9395 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9B6063BE2470D6DB008C9395 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9B6063C02470D6DB008C9395 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9BEE992D248CB2EF00F7B71C /* Net */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Net; sourceTree = "<group>"; };
 		9BF3BC34248363E3009D4471 /* Proto */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Proto; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -37,6 +38,7 @@
 		9B6063A62470D6D9008C9395 = {
 			isa = PBXGroup;
 			children = (
+				9BEE992D248CB2EF00F7B71C /* Net */,
 				9BF3BC34248363E3009D4471 /* Proto */,
 				9B6063B12470D6D9008C9395 /* satelit-ios */,
 				9B6063B02470D6D9008C9395 /* Products */,

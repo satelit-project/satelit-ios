@@ -22,35 +22,38 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 /// Known anime types.
 public enum Anime_V1_AnimeType: SwiftProtobuf.Enum {
   public typealias RawValue = Int
-  case tv // = 0
-  case ova // = 1
-  case ona // = 2
-  case movie // = 3
-  case special // = 4
+  case unknown // = 0
+  case tv // = 1
+  case ova // = 2
+  case ona // = 3
+  case movie // = 4
+  case special // = 5
   case UNRECOGNIZED(Int)
 
   public init() {
-    self = .tv
+    self = .unknown
   }
 
   public init?(rawValue: Int) {
     switch rawValue {
-    case 0: self = .tv
-    case 1: self = .ova
-    case 2: self = .ona
-    case 3: self = .movie
-    case 4: self = .special
+    case 0: self = .unknown
+    case 1: self = .tv
+    case 2: self = .ova
+    case 3: self = .ona
+    case 4: self = .movie
+    case 5: self = .special
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
 
   public var rawValue: Int {
     switch self {
-    case .tv: return 0
-    case .ova: return 1
-    case .ona: return 2
-    case .movie: return 3
-    case .special: return 4
+    case .unknown: return 0
+    case .tv: return 1
+    case .ova: return 2
+    case .ona: return 3
+    case .movie: return 4
+    case .special: return 5
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -62,6 +65,7 @@ public enum Anime_V1_AnimeType: SwiftProtobuf.Enum {
 extension Anime_V1_AnimeType: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   public static var allCases: [Anime_V1_AnimeType] = [
+    .unknown,
     .tv,
     .ova,
     .ona,
@@ -75,29 +79,32 @@ extension Anime_V1_AnimeType: CaseIterable {
 /// Airing status of a single anime show.
 public enum Anime_V1_AiringStatus: SwiftProtobuf.Enum {
   public typealias RawValue = Int
-  case unaired // = 0
-  case airing // = 1
-  case aired // = 2
+  case unknown // = 0
+  case unaired // = 1
+  case airing // = 2
+  case aired // = 3
   case UNRECOGNIZED(Int)
 
   public init() {
-    self = .unaired
+    self = .unknown
   }
 
   public init?(rawValue: Int) {
     switch rawValue {
-    case 0: self = .unaired
-    case 1: self = .airing
-    case 2: self = .aired
+    case 0: self = .unknown
+    case 1: self = .unaired
+    case 2: self = .airing
+    case 3: self = .aired
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
 
   public var rawValue: Int {
     switch self {
-    case .unaired: return 0
-    case .airing: return 1
-    case .aired: return 2
+    case .unknown: return 0
+    case .unaired: return 1
+    case .airing: return 2
+    case .aired: return 3
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -109,6 +116,7 @@ public enum Anime_V1_AiringStatus: SwiftProtobuf.Enum {
 extension Anime_V1_AiringStatus: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   public static var allCases: [Anime_V1_AiringStatus] = [
+    .unknown,
     .unaired,
     .airing,
     .aired,
@@ -120,32 +128,35 @@ extension Anime_V1_AiringStatus: CaseIterable {
 /// Name of the season when an anime show started airing.
 public enum Anime_V1_AiringSeason: SwiftProtobuf.Enum {
   public typealias RawValue = Int
-  case summer // = 0
-  case fall // = 1
-  case winter // = 2
-  case spring // = 3
+  case unknown // = 0
+  case summer // = 1
+  case fall // = 2
+  case winter // = 3
+  case spring // = 4
   case UNRECOGNIZED(Int)
 
   public init() {
-    self = .summer
+    self = .unknown
   }
 
   public init?(rawValue: Int) {
     switch rawValue {
-    case 0: self = .summer
-    case 1: self = .fall
-    case 2: self = .winter
-    case 3: self = .spring
+    case 0: self = .unknown
+    case 1: self = .summer
+    case 2: self = .fall
+    case 3: self = .winter
+    case 4: self = .spring
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
 
   public var rawValue: Int {
     switch self {
-    case .summer: return 0
-    case .fall: return 1
-    case .winter: return 2
-    case .spring: return 3
+    case .unknown: return 0
+    case .summer: return 1
+    case .fall: return 2
+    case .winter: return 3
+    case .spring: return 4
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -157,6 +168,7 @@ public enum Anime_V1_AiringSeason: SwiftProtobuf.Enum {
 extension Anime_V1_AiringSeason: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   public static var allCases: [Anime_V1_AiringSeason] = [
+    .unknown,
     .summer,
     .fall,
     .winter,
@@ -189,8 +201,6 @@ public struct Anime_V1_AnimeGenre {
 }
 
 /// Represents a single anime show.
-///
-/// Default locale is en-US.
 public struct Anime_V1_Anime {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -202,20 +212,17 @@ public struct Anime_V1_Anime {
   /// Name of the show in romanji.
   public var name: String = String()
 
-  /// URL of the poster.
-  public var posterURL: String = String()
-
   /// URL of the poster thumbnail.
   public var thumbnailURL: String = String()
 
   /// Type of the show.
-  public var type: Anime_V1_AnimeType = .tv
+  public var type: Anime_V1_AnimeType = .unknown
 
   /// Airing season.
-  public var season: Anime_V1_AiringSeason = .summer
+  public var season: Anime_V1_AiringSeason = .unknown
 
   /// Airing status.
-  public var airingStatus: Anime_V1_AiringStatus = .unaired
+  public var airingStatus: Anime_V1_AiringStatus = .unknown
 
   /// Timestamp of when the show started airing.
   public var startAiringDate: UInt64 = 0
@@ -225,12 +232,6 @@ public struct Anime_V1_Anime {
 
   /// Score from 0 to 10.
   public var score: Float = 0
-
-  /// List of the show's genres.
-  public var genres: [Anime_V1_AnimeGenre] = []
-
-  /// Summary of the show.
-  public var summary: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -243,28 +244,31 @@ fileprivate let _protobuf_package = "anime.v1"
 
 extension Anime_V1_AnimeType: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "ANIME_TYPE_TV"),
-    1: .same(proto: "ANIME_TYPE_OVA"),
-    2: .same(proto: "ANIME_TYPE_ONA"),
-    3: .same(proto: "ANIME_TYPE_MOVIE"),
-    4: .same(proto: "ANIME_TYPE_SPECIAL"),
+    0: .same(proto: "ANIME_TYPE_UNKNOWN"),
+    1: .same(proto: "ANIME_TYPE_TV"),
+    2: .same(proto: "ANIME_TYPE_OVA"),
+    3: .same(proto: "ANIME_TYPE_ONA"),
+    4: .same(proto: "ANIME_TYPE_MOVIE"),
+    5: .same(proto: "ANIME_TYPE_SPECIAL"),
   ]
 }
 
 extension Anime_V1_AiringStatus: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "AIRING_STATUS_UNAIRED"),
-    1: .same(proto: "AIRING_STATUS_AIRING"),
-    2: .same(proto: "AIRING_STATUS_AIRED"),
+    0: .same(proto: "AIRING_STATUS_UNKNOWN"),
+    1: .same(proto: "AIRING_STATUS_UNAIRED"),
+    2: .same(proto: "AIRING_STATUS_AIRING"),
+    3: .same(proto: "AIRING_STATUS_AIRED"),
   ]
 }
 
 extension Anime_V1_AiringSeason: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "AIRING_SEASON_SUMMER"),
-    1: .same(proto: "AIRING_SEASON_FALL"),
-    2: .same(proto: "AIRING_SEASON_WINTER"),
-    3: .same(proto: "AIRING_SEASON_SPRING"),
+    0: .same(proto: "AIRING_SEASON_UNKNOWN"),
+    1: .same(proto: "AIRING_SEASON_SUMMER"),
+    2: .same(proto: "AIRING_SEASON_FALL"),
+    3: .same(proto: "AIRING_SEASON_WINTER"),
+    4: .same(proto: "AIRING_SEASON_SPRING"),
   ]
 }
 
@@ -314,16 +318,13 @@ extension Anime_V1_Anime: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "id"),
     2: .same(proto: "name"),
-    3: .standard(proto: "poster_url"),
-    4: .standard(proto: "thumbnail_url"),
-    5: .same(proto: "type"),
-    6: .same(proto: "season"),
-    7: .standard(proto: "airing_status"),
-    8: .standard(proto: "start_airing_date"),
-    9: .standard(proto: "end_airing_date"),
-    10: .same(proto: "score"),
-    11: .same(proto: "genres"),
-    12: .same(proto: "summary"),
+    3: .standard(proto: "thumbnail_url"),
+    4: .same(proto: "type"),
+    5: .same(proto: "season"),
+    6: .standard(proto: "airing_status"),
+    7: .standard(proto: "start_airing_date"),
+    8: .standard(proto: "end_airing_date"),
+    9: .same(proto: "score"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -331,16 +332,13 @@ extension Anime_V1_Anime: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
       switch fieldNumber {
       case 1: try decoder.decodeSingularUInt64Field(value: &self.id)
       case 2: try decoder.decodeSingularStringField(value: &self.name)
-      case 3: try decoder.decodeSingularStringField(value: &self.posterURL)
-      case 4: try decoder.decodeSingularStringField(value: &self.thumbnailURL)
-      case 5: try decoder.decodeSingularEnumField(value: &self.type)
-      case 6: try decoder.decodeSingularEnumField(value: &self.season)
-      case 7: try decoder.decodeSingularEnumField(value: &self.airingStatus)
-      case 8: try decoder.decodeSingularUInt64Field(value: &self.startAiringDate)
-      case 9: try decoder.decodeSingularUInt64Field(value: &self.endAiringDate)
-      case 10: try decoder.decodeSingularFloatField(value: &self.score)
-      case 11: try decoder.decodeRepeatedMessageField(value: &self.genres)
-      case 12: try decoder.decodeSingularStringField(value: &self.summary)
+      case 3: try decoder.decodeSingularStringField(value: &self.thumbnailURL)
+      case 4: try decoder.decodeSingularEnumField(value: &self.type)
+      case 5: try decoder.decodeSingularEnumField(value: &self.season)
+      case 6: try decoder.decodeSingularEnumField(value: &self.airingStatus)
+      case 7: try decoder.decodeSingularUInt64Field(value: &self.startAiringDate)
+      case 8: try decoder.decodeSingularUInt64Field(value: &self.endAiringDate)
+      case 9: try decoder.decodeSingularFloatField(value: &self.score)
       default: break
       }
     }
@@ -353,35 +351,26 @@ extension Anime_V1_Anime: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
     if !self.name.isEmpty {
       try visitor.visitSingularStringField(value: self.name, fieldNumber: 2)
     }
-    if !self.posterURL.isEmpty {
-      try visitor.visitSingularStringField(value: self.posterURL, fieldNumber: 3)
-    }
     if !self.thumbnailURL.isEmpty {
-      try visitor.visitSingularStringField(value: self.thumbnailURL, fieldNumber: 4)
+      try visitor.visitSingularStringField(value: self.thumbnailURL, fieldNumber: 3)
     }
-    if self.type != .tv {
-      try visitor.visitSingularEnumField(value: self.type, fieldNumber: 5)
+    if self.type != .unknown {
+      try visitor.visitSingularEnumField(value: self.type, fieldNumber: 4)
     }
-    if self.season != .summer {
-      try visitor.visitSingularEnumField(value: self.season, fieldNumber: 6)
+    if self.season != .unknown {
+      try visitor.visitSingularEnumField(value: self.season, fieldNumber: 5)
     }
-    if self.airingStatus != .unaired {
-      try visitor.visitSingularEnumField(value: self.airingStatus, fieldNumber: 7)
+    if self.airingStatus != .unknown {
+      try visitor.visitSingularEnumField(value: self.airingStatus, fieldNumber: 6)
     }
     if self.startAiringDate != 0 {
-      try visitor.visitSingularUInt64Field(value: self.startAiringDate, fieldNumber: 8)
+      try visitor.visitSingularUInt64Field(value: self.startAiringDate, fieldNumber: 7)
     }
     if self.endAiringDate != 0 {
-      try visitor.visitSingularUInt64Field(value: self.endAiringDate, fieldNumber: 9)
+      try visitor.visitSingularUInt64Field(value: self.endAiringDate, fieldNumber: 8)
     }
     if self.score != 0 {
-      try visitor.visitSingularFloatField(value: self.score, fieldNumber: 10)
-    }
-    if !self.genres.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.genres, fieldNumber: 11)
-    }
-    if !self.summary.isEmpty {
-      try visitor.visitSingularStringField(value: self.summary, fieldNumber: 12)
+      try visitor.visitSingularFloatField(value: self.score, fieldNumber: 9)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -389,7 +378,6 @@ extension Anime_V1_Anime: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
   public static func ==(lhs: Anime_V1_Anime, rhs: Anime_V1_Anime) -> Bool {
     if lhs.id != rhs.id {return false}
     if lhs.name != rhs.name {return false}
-    if lhs.posterURL != rhs.posterURL {return false}
     if lhs.thumbnailURL != rhs.thumbnailURL {return false}
     if lhs.type != rhs.type {return false}
     if lhs.season != rhs.season {return false}
@@ -397,8 +385,6 @@ extension Anime_V1_Anime: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
     if lhs.startAiringDate != rhs.startAiringDate {return false}
     if lhs.endAiringDate != rhs.endAiringDate {return false}
     if lhs.score != rhs.score {return false}
-    if lhs.genres != rhs.genres {return false}
-    if lhs.summary != rhs.summary {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
