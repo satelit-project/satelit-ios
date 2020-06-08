@@ -16,7 +16,7 @@ func predefinedAnimes() -> [Anime_V1_Anime] {
         anime.score = Float(scores[i])
         animes.append(anime)
     }
-    
+
     return animes
 }
 
@@ -58,7 +58,7 @@ private let types: [Anime_V1_AnimeType] = [
     .tv,
     .tv,
     .tv,
-    .tv
+    .tv,
 ]
 
 private let seasons: [Anime_V1_AiringSeason] = [

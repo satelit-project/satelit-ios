@@ -1,3 +1,3 @@
 # Net
 
-Network layer for the Satelit APIs.
+Networking layer for the Satelit app.

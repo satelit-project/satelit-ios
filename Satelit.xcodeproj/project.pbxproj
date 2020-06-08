@@ -14,7 +14,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9B6063AF2470D6D9008C9395 /* satelit-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "satelit-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B6063AF2470D6D9008C9395 /* Satelit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Satelit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B6063B22470D6D9008C9395 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B6063B42470D6D9008C9395 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		9B6063B82470D6DB008C9395 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -40,7 +40,7 @@
 			children = (
 				9BEE992D248CB2EF00F7B71C /* Net */,
 				9BF3BC34248363E3009D4471 /* Proto */,
-				9B6063B12470D6D9008C9395 /* satelit-ios */,
+				9B6063B12470D6D9008C9395 /* Satelit */,
 				9B6063B02470D6D9008C9395 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -48,12 +48,12 @@
 		9B6063B02470D6D9008C9395 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9B6063AF2470D6D9008C9395 /* satelit-ios.app */,
+				9B6063AF2470D6D9008C9395 /* Satelit.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9B6063B12470D6D9008C9395 /* satelit-ios */ = {
+		9B6063B12470D6D9008C9395 /* Satelit */ = {
 			isa = PBXGroup;
 			children = (
 				9B6063B22470D6D9008C9395 /* AppDelegate.swift */,
@@ -62,15 +62,15 @@
 				9B6063BD2470D6DB008C9395 /* LaunchScreen.storyboard */,
 				9B6063C02470D6DB008C9395 /* Info.plist */,
 			);
-			path = "satelit-ios";
+			path = Satelit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9B6063AE2470D6D9008C9395 /* satelit-ios */ = {
+		9B6063AE2470D6D9008C9395 /* Satelit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9B6063C32470D6DB008C9395 /* Build configuration list for PBXNativeTarget "satelit-ios" */;
+			buildConfigurationList = 9B6063C32470D6DB008C9395 /* Build configuration list for PBXNativeTarget "Satelit" */;
 			buildPhases = (
 				9B6063AB2470D6D9008C9395 /* Sources */,
 				9B6063AC2470D6D9008C9395 /* Frameworks */,
@@ -80,9 +80,9 @@
 			);
 			dependencies = (
 			);
-			name = "satelit-ios";
+			name = Satelit;
 			productName = "satelit-ios";
-			productReference = 9B6063AF2470D6D9008C9395 /* satelit-ios.app */;
+			productReference = 9B6063AF2470D6D9008C9395 /* Satelit.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -100,7 +100,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 9B6063AA2470D6D9008C9395 /* Build configuration list for PBXProject "satelit-ios" */;
+			buildConfigurationList = 9B6063AA2470D6D9008C9395 /* Build configuration list for PBXProject "Satelit" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -113,7 +113,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9B6063AE2470D6D9008C9395 /* satelit-ios */,
+				9B6063AE2470D6D9008C9395 /* Satelit */,
 			);
 		};
 /* End PBXProject section */
@@ -274,13 +274,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WEM6WW7GWV;
-				INFOPLIST_FILE = "satelit-ios/Info.plist";
+				INFOPLIST_FILE = Satelit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "moe.shitty.satelit-ios";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Satelit;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -292,13 +292,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WEM6WW7GWV;
-				INFOPLIST_FILE = "satelit-ios/Info.plist";
+				INFOPLIST_FILE = Satelit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "moe.shitty.satelit-ios";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Satelit;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -307,7 +307,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9B6063AA2470D6D9008C9395 /* Build configuration list for PBXProject "satelit-ios" */ = {
+		9B6063AA2470D6D9008C9395 /* Build configuration list for PBXProject "Satelit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9B6063C12470D6DB008C9395 /* Debug */,
@@ -316,7 +316,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9B6063C32470D6DB008C9395 /* Build configuration list for PBXNativeTarget "satelit-ios" */ = {
+		9B6063C32470D6DB008C9395 /* Build configuration list for PBXNativeTarget "Satelit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9B6063C42470D6DB008C9395 /* Debug */,
