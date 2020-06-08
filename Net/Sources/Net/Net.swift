@@ -23,12 +23,12 @@ public final class NetworkError: Error {
 
 // MARK: Extensions
 
-public extension NetworkError {
+extension NetworkError {
     /// Represents all posible error codes.
     ///
     /// For more details on errors from 1 to 15 see [gRPC](
     /// https://github.com/grpc/grpc/blob/master/doc/statuscodes.md) specification.
-    enum Code: Int {
+    public enum Code: Int {
         /// The operation was cancelled.
         case cancelled = 1
 

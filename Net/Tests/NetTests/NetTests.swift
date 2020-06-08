@@ -1,6 +1,4 @@
 @testable import Net
 import XCTest
 
-final class NetTests: XCTestCase {
-    func testExample() {}
-}
+final class NetTests: XCTestCase {}
