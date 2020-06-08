@@ -221,14 +221,11 @@ public struct Anime_V1_Anime {
   /// Airing season.
   public var season: Anime_V1_AiringSeason = .unknown
 
+  /// Airing season year,
+  public var year: Int32 = 0
+
   /// Airing status.
   public var airingStatus: Anime_V1_AiringStatus = .unknown
-
-  /// Timestamp of when the show started airing.
-  public var startAiringDate: UInt64 = 0
-
-  /// Timestamp of when the show ended airing.
-  public var endAiringDate: UInt64 = 0
 
   /// Score from 0 to 10.
   public var score: Float = 0
@@ -321,10 +318,9 @@ extension Anime_V1_Anime: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
     3: .standard(proto: "thumbnail_url"),
     4: .same(proto: "type"),
     5: .same(proto: "season"),
-    6: .standard(proto: "airing_status"),
-    7: .standard(proto: "start_airing_date"),
-    8: .standard(proto: "end_airing_date"),
-    9: .same(proto: "score"),
+    6: .same(proto: "year"),
+    7: .standard(proto: "airing_status"),
+    8: .same(proto: "score"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -335,10 +331,9 @@ extension Anime_V1_Anime: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
       case 3: try decoder.decodeSingularStringField(value: &self.thumbnailURL)
       case 4: try decoder.decodeSingularEnumField(value: &self.type)
       case 5: try decoder.decodeSingularEnumField(value: &self.season)
-      case 6: try decoder.decodeSingularEnumField(value: &self.airingStatus)
-      case 7: try decoder.decodeSingularUInt64Field(value: &self.startAiringDate)
-      case 8: try decoder.decodeSingularUInt64Field(value: &self.endAiringDate)
-      case 9: try decoder.decodeSingularFloatField(value: &self.score)
+      case 6: try decoder.decodeSingularSInt32Field(value: &self.year)
+      case 7: try decoder.decodeSingularEnumField(value: &self.airingStatus)
+      case 8: try decoder.decodeSingularFloatField(value: &self.score)
       default: break
       }
     }
@@ -360,17 +355,14 @@ extension Anime_V1_Anime: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
     if self.season != .unknown {
       try visitor.visitSingularEnumField(value: self.season, fieldNumber: 5)
     }
+    if self.year != 0 {
+      try visitor.visitSingularSInt32Field(value: self.year, fieldNumber: 6)
+    }
     if self.airingStatus != .unknown {
-      try visitor.visitSingularEnumField(value: self.airingStatus, fieldNumber: 6)
-    }
-    if self.startAiringDate != 0 {
-      try visitor.visitSingularUInt64Field(value: self.startAiringDate, fieldNumber: 7)
-    }
-    if self.endAiringDate != 0 {
-      try visitor.visitSingularUInt64Field(value: self.endAiringDate, fieldNumber: 8)
+      try visitor.visitSingularEnumField(value: self.airingStatus, fieldNumber: 7)
     }
     if self.score != 0 {
-      try visitor.visitSingularFloatField(value: self.score, fieldNumber: 9)
+      try visitor.visitSingularFloatField(value: self.score, fieldNumber: 8)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -381,9 +373,8 @@ extension Anime_V1_Anime: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
     if lhs.thumbnailURL != rhs.thumbnailURL {return false}
     if lhs.type != rhs.type {return false}
     if lhs.season != rhs.season {return false}
+    if lhs.year != rhs.year {return false}
     if lhs.airingStatus != rhs.airingStatus {return false}
-    if lhs.startAiringDate != rhs.startAiringDate {return false}
-    if lhs.endAiringDate != rhs.endAiringDate {return false}
     if lhs.score != rhs.score {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
