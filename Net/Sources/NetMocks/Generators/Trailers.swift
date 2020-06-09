@@ -2,7 +2,7 @@ import Foundation
 
 import Proto
 
-/// Returns a list of predefined anime titles
+/// Returns a list of predefined anime trailers.
 func predefinedTrailers() -> [Data_V1_Trailer] {
     var trailers = [Data_V1_Trailer]()
     for (anime, url) in zip(predefinedAnimes(), videoURLs) {
