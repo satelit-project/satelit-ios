@@ -3,10 +3,10 @@ import Foundation
 import Proto
 
 /// Returns list of all predefined anime shows.
-func predefinedAnimes() -> [Anime_V1_Anime] {
-    var animes = [Anime_V1_Anime]()
+func predefinedAnimes() -> [Data_V1_Anime] {
+    var animes = [Data_V1_Anime]()
     for i in 0 ..< names.count {
-        var anime = Anime_V1_Anime()
+        var anime = Data_V1_Anime()
         anime.name = names[i]
         anime.thumbnailURL = thumbnails[i]
         anime.type = types[i]
@@ -48,7 +48,7 @@ private let thumbnails = [
     "https://cdn-eu.anidb.net/images/main/248007.jpg",
 ]
 
-private let types: [Anime_V1_AnimeType] = [
+private let types: [Data_V1_AnimeType] = [
     .tv,
     .ona,
     .tv,
@@ -61,7 +61,7 @@ private let types: [Anime_V1_AnimeType] = [
     .tv,
 ]
 
-private let seasons: [Anime_V1_AiringSeason] = [
+private let seasons: [Data_V1_AiringSeason] = [
     .winter,
     .spring,
     .spring,
@@ -87,7 +87,7 @@ private let years = [
     2020,
 ]
 
-private let statuses: [Anime_V1_AiringStatus] = [
+private let statuses: [Data_V1_AiringStatus] = [
     .aired,
     .aired,
     .airing,
