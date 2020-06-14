@@ -5,7 +5,7 @@ import Proto
 /// A result of a network service's method call.
 public typealias ServiceResult<T> = Result<T, NetworkError>
 
-/// Represents a networking error that may happen during network service's method call.
+/// A networking error that may happen during network service's method call.
 public final class NetworkError: Error {
     /// Code of the error.
     public let code: Code
@@ -24,7 +24,7 @@ public final class NetworkError: Error {
 // MARK: Extensions
 
 extension NetworkError {
-    /// Represents all posible error codes.
+    /// All posible error codes.
     ///
     /// For more details on errors from 1 to 15 see [gRPC](
     /// https://github.com/grpc/grpc/blob/master/doc/statuscodes.md) specification.

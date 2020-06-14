@@ -2,7 +2,7 @@ import Foundation
 
 import Proto
 
-/// Represents a service that can fetch anime news.
+/// A service that can fetch anime news.
 public protocol AnimeNewsService {
     /// Fetches and returns a list of latest anime news articles.
     ///

@@ -2,7 +2,7 @@ import Foundation
 
 import Proto
 
-/// Returns list of all predefined anime shows.
+/// Returns a list of all predefined anime shows.
 func predefinedAnimes() -> [Data_V1_Anime] {
     var animes = [Data_V1_Anime]()
     for i in 0 ..< names.count {

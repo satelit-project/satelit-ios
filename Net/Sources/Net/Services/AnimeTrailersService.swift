@@ -2,7 +2,7 @@ import Foundation
 
 import Proto
 
-/// Represents a service that can fetch anime trailers.
+/// A service that can fetch anime trailers.
 public protocol AnimeTrailersService {
     /// Fetches and returns a list of featured anime trailers.
     ///
