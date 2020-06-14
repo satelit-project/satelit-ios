@@ -1,7 +1,7 @@
 import SwiftUI
 import UIKit
 
-/// Represents a single menu item.
+/// A single menu item.
 public final class MenuBarItem {
     /// Image of the item.
     fileprivate let image: UIImage
@@ -66,7 +66,7 @@ public final class MenuBar: UIView {
 
     // MARK: Init & deinit
 
-    /// Initializes new menu with the provided menu items.
+    /// Creates new menu with the provided menu items.
     /// - Parameter items: Menu items to display in the new menu.
     public init(items: [MenuBarItem] = []) {
         super.init(frame: .zero)
@@ -129,7 +129,7 @@ public final class MenuBar: UIView {
         selectItemView(tap.view as? MenuBarItemView)
     }
 
-    /// Mark provided `itemView` as selected and calls item's callbacks.
+    /// Marks provided `itemView` as selected and calls item's callbacks.
     private func selectItemView(_ itemView: MenuBarItemView?) {
         if let view = selectedItemView {
             view.setSelected(false)
@@ -195,12 +195,12 @@ public final class MenuBar: UIView {
 
 // MARK: Private types
 
-/// Displays a single menu bar item.
+/// A single menu bar item.
 private final class MenuBarItemView: UIImageView {
     /// A menu item managed by the view.
     private let item: MenuBarItem
 
-    /// Initializes the view with the provided `item`.
+    /// Creates the view with the provided `item`.
     init(item: MenuBarItem) {
         self.item = item
         super.init(frame: .zero)
