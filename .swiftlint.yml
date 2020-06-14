@@ -5,6 +5,10 @@ disabled_rules:
   - trailing_comma
   - identifier_name
   - line_length
+  - force_unwrapping
+  - multiline_arguments_brackets
+  - strict_fileprivate
+  - file_types_order
 
 opt_in_rules:
   - anyobject_protocol

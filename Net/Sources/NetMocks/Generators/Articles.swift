@@ -11,7 +11,7 @@ func predefinedArticles() -> [Data_V1_Article] {
         article.summary = summaries[i]
         article.source = sources[i]
         article.sourceURL = urls[i]
-        article.likes = (0 ... 9999).randomElement()!  // swiftlint:disable:this force_unwrapping
+        article.likes = (0 ... 9999).randomElement()!
         articles.append(article)
     }
 
