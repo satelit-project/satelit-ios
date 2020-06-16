@@ -89,8 +89,10 @@ public final class MenuBar: UIView {
     // MARK: Methods
 
     /// Selects menu item at `index` and deselects previously selected item.
-    public func selectItem(at index: Int) {
-        selectItemView(itemViews[index])
+    ///
+    /// Setting `nil` deselects currently selected item.
+    public func selectItem(at index: Int?) {
+        selectItemView(index.map({ itemViews[$0] }))
     }
 
     // MARK: Configuration

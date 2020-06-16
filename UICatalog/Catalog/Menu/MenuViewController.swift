@@ -1,26 +1,55 @@
 import UI
 import UIKit
 
-class MenuViewController: UIViewController {
+class MenuViewController: MenuBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let items = [
-            MenuBarItem(image: UIImage(systemName: "globe")!),
-            MenuBarItem(image: UIImage(systemName: "list.bullet.below.rectangle")!),
-            MenuBarItem(image: UIImage(systemName: "magnifyingglass")!),
-            MenuBarItem(image: UIImage(systemName: "person")!),
+        let images = [
+            UIImage(systemName: "globe")!,
+            UIImage(systemName: "list.bullet.below.rectangle")!,
+            UIImage(systemName: "magnifyingglass")!,
+            UIImage(systemName: "person")!,
         ]
+        
+        let controllers: [UIViewController] = [
+            {
+                let controller = UIViewController()
+                controller.view.backgroundColor = .systemRed
+                return controller
+            }(),
+            {
+                let controller = UIViewController()
+                controller.view.backgroundColor = .systemBlue
+                return controller
+            }(),
+            {
+                let controller = UIViewController()
+                controller.view.backgroundColor = .systemPink
+                return controller
+            }(),
+            {
+                let controller = UIViewController()
+                controller.view.backgroundColor = .systemTeal
+                return controller
+            }(),
+        ]
+        
+        for controller in controllers {
+            let view = UIView()
+            view.translatesAutoresizingMaskIntoConstraints = false
+            view.backgroundColor = .systemBackground
+            view.alpha = 0.5
 
-        let menu = MenuBar(items: items)
-        menu.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(menu)
+            controller.view.addSubview(view)
+            NSLayoutConstraint.activate([
+                view.topAnchor.constraint(equalTo: controller.view.safeAreaLayoutGuide.topAnchor),
+                view.leftAnchor.constraint(equalTo: controller.view.safeAreaLayoutGuide.leftAnchor),
+                view.bottomAnchor.constraint(equalTo: controller.view.safeAreaLayoutGuide.bottomAnchor),
+                view.rightAnchor.constraint(equalTo: controller.view.safeAreaLayoutGuide.rightAnchor),
+            ])
+        }
 
-        NSLayoutConstraint.activate([
-            menu.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            menu.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-        ])
-
-        view.backgroundColor = .systemBackground
+       setControllers(controllers, images: images)
     }
 }
