@@ -182,6 +182,8 @@ private final class MenuBarContainerView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
 
+        superview?.layoutIfNeeded() // TODO: well, that's not good
+
         // calculate additional safe area insets to make it non-overlapping with the menu bar
         if bounds != lastBounds {
             let obscuredHeight = bounds.height - menu.frame.maxY + menu.bounds.height - realBottomSafeAreaInset()
