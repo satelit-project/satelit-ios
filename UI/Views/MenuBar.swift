@@ -148,7 +148,7 @@ public final class MenuBar: UIView {
 
     /// Creates and returns menu view.
     private func makeMenu(with items: [MenuBarItem]) -> (UIView, [MenuBarItemView]) {
-        let blur = UIBlurEffect(style: .systemChromeMaterial)
+        let blur = UIBlurEffect(style: .systemThickMaterial)
         let blurView = UIVisualEffectView(effect: blur)
 
         let itemViews = makeItemViews(for: items)
