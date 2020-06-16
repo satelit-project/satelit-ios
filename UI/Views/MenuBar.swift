@@ -92,7 +92,7 @@ public final class MenuBar: UIView {
     ///
     /// Setting `nil` deselects currently selected item.
     public func selectItem(at index: Int?) {
-        selectItemView(index.map({ itemViews[$0] }))
+        selectItemView(index.map { itemViews[$0] })
     }
 
     // MARK: Configuration

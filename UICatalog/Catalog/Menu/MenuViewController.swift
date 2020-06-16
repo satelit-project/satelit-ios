@@ -11,7 +11,7 @@ class MenuViewController: MenuBarController {
             UIImage(systemName: "magnifyingglass")!,
             UIImage(systemName: "person")!,
         ]
-        
+
         let controllers: [UIViewController] = [
             {
                 let controller = UIViewController()
@@ -34,7 +34,7 @@ class MenuViewController: MenuBarController {
                 return controller
             }(),
         ]
-        
+
         for controller in controllers {
             let view = UIView()
             view.translatesAutoresizingMaskIntoConstraints = false
@@ -50,6 +50,6 @@ class MenuViewController: MenuBarController {
             ])
         }
 
-       setControllers(controllers, images: images)
+        setControllers(controllers, images: images)
     }
 }
