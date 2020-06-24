@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9B6063AE2470D6D9008C9395"
-               BuildableName = "Satelit.app"
-               BlueprintName = "Satelit"
+               BlueprintIdentifier = "9B2188102495D87F00725176"
+               BuildableName = "UICatalog.app"
+               BlueprintName = "UICatalog"
                ReferencedContainer = "container:Satelit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -44,9 +44,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9B6063AE2470D6D9008C9395"
-            BuildableName = "Satelit.app"
-            BlueprintName = "Satelit"
+            BlueprintIdentifier = "9B2188102495D87F00725176"
+            BuildableName = "UICatalog.app"
+            BlueprintName = "UICatalog"
             ReferencedContainer = "container:Satelit.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -61,9 +61,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9B6063AE2470D6D9008C9395"
-            BuildableName = "Satelit.app"
-            BlueprintName = "Satelit"
+            BlueprintIdentifier = "9B2188102495D87F00725176"
+            BuildableName = "UICatalog.app"
+            BlueprintName = "UICatalog"
             ReferencedContainer = "container:Satelit.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
