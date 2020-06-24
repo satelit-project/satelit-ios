@@ -1,5 +1,5 @@
-import UIKit
 import SatelitUI
+import UIKit
 
 class MenuViewController: MenuBarController {
     override func viewDidLoad() {

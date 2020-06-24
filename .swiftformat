@@ -1,5 +1,5 @@
 # options
---exclude Proto
+--exclude Packages/Proto
 --header strip
 --maxwidth 120
 --wraparguments before-first

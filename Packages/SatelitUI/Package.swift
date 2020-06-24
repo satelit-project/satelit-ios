@@ -8,12 +8,14 @@ let package = Package(
     products: [
         .library(
             name: "SatelitUI",
-            targets: ["SatelitUI"]),
+            targets: ["SatelitUI"]
+        ),
     ],
     dependencies: [],
     targets: [
         .target(
             name: "SatelitUI",
-            dependencies: []),
+            dependencies: []
+        ),
     ]
 )
