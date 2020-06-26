@@ -18,6 +18,7 @@
 		9B6063B52470D6D9008C9395 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6063B42470D6D9008C9395 /* SceneDelegate.swift */; };
 		9B6063B92470D6DB008C9395 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B6063B82470D6DB008C9395 /* Assets.xcassets */; };
 		9B6063BF2470D6DB008C9395 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B6063BD2470D6DB008C9395 /* LaunchScreen.storyboard */; };
+		9BD9747224A6271500FE58E3 /* TrailerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD9747124A6271500FE58E3 /* TrailerViewController.swift */; };
 		9BF6DC0324A39737007207B6 /* SatelitUI in Frameworks */ = {isa = PBXBuildFile; productRef = 9BF6DC0224A39737007207B6 /* SatelitUI */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,7 @@
 		9B6063B82470D6DB008C9395 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9B6063BE2470D6DB008C9395 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9B6063C02470D6DB008C9395 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9BD9747124A6271500FE58E3 /* TrailerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerViewController.swift; sourceTree = "<group>"; };
 		9BEE992D248CB2EF00F7B71C /* Net */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Net; sourceTree = "<group>"; };
 		9BF3BC34248363E3009D4471 /* Proto */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Proto; sourceTree = "<group>"; };
 		9BF6DC0124A396D8007207B6 /* SatelitUI */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SatelitUI; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 		9B2188272495D9AC00725176 /* Catalog */ = {
 			isa = PBXGroup;
 			children = (
+				9BD9747024A6270000FE58E3 /* Trailer */,
 				9B2188282495D9B800725176 /* Menu */,
 				9B2188172495D87F00725176 /* MasterViewController.swift */,
 			);
@@ -190,6 +193,14 @@
 				9B6063B42470D6D9008C9395 /* SceneDelegate.swift */,
 			);
 			path = Satelit;
+			sourceTree = "<group>";
+		};
+		9BD9747024A6270000FE58E3 /* Trailer */ = {
+			isa = PBXGroup;
+			children = (
+				9BD9747124A6271500FE58E3 /* TrailerViewController.swift */,
+			);
+			path = Trailer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,6 +312,7 @@
 				9B2188142495D87F00725176 /* AppDelegate.swift in Sources */,
 				9B21882A2495D9D800725176 /* MenuViewController.swift in Sources */,
 				9B2188162495D87F00725176 /* SceneDelegate.swift in Sources */,
+				9BD9747224A6271500FE58E3 /* TrailerViewController.swift in Sources */,
 				9B2188182495D87F00725176 /* MasterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -182,8 +182,6 @@ private final class MenuBarContainerView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
 
-        superview?.layoutIfNeeded() // TODO: well, that's not good
-
         // calculate additional safe area insets to make it non-overlapping with the menu bar
         if bounds != lastBounds {
             let obscuredHeight = bounds.height - menu.frame.maxY + menu.bounds.height - realBottomSafeAreaInset()
@@ -239,50 +237,50 @@ private final class MenuBarContainerView: UIView {
 // MARK: - Previews
 
 #if DEBUG
-    private final class MenuBarControllerCompat: UIViewControllerRepresentable {
-        func updateUIViewController(_: MenuBarController, context _: Context) {}
+private final class MenuBarControllerCompat: UIViewControllerRepresentable {
+    func updateUIViewController(_: MenuBarController, context _: Context) {}
 
-        func makeUIViewController(context _: Context) -> MenuBarController {
-            let images = [
-                UIImage(systemName: "globe")!,
-                UIImage(systemName: "list.bullet.below.rectangle")!,
-                UIImage(systemName: "magnifyingglass")!,
-                UIImage(systemName: "person")!,
-            ]
+    func makeUIViewController(context _: Context) -> MenuBarController {
+        let images = [
+            UIImage(systemName: "globe")!,
+            UIImage(systemName: "list.bullet.below.rectangle")!,
+            UIImage(systemName: "magnifyingglass")!,
+            UIImage(systemName: "person")!,
+        ]
 
-            let controllers: [UIViewController] = [
-                {
-                    let controller = UIViewController()
-                    controller.view.backgroundColor = .systemRed
-                    return controller
-                }(),
-                {
-                    let controller = UIViewController()
-                    controller.view.backgroundColor = .systemBlue
-                    return controller
-                }(),
-                {
-                    let controller = UIViewController()
-                    controller.view.backgroundColor = .systemPink
-                    return controller
-                }(),
-                {
-                    let controller = UIViewController()
-                    controller.view.backgroundColor = .systemTeal
-                    return controller
-                }(),
-            ]
+        let controllers: [UIViewController] = [
+            {
+                let controller = UIViewController()
+                controller.view.backgroundColor = .systemRed
+                return controller
+            }(),
+            {
+                let controller = UIViewController()
+                controller.view.backgroundColor = .systemBlue
+                return controller
+            }(),
+            {
+                let controller = UIViewController()
+                controller.view.backgroundColor = .systemPink
+                return controller
+            }(),
+            {
+                let controller = UIViewController()
+                controller.view.backgroundColor = .systemTeal
+                return controller
+            }(),
+        ]
 
-            let controller = MenuBarController()
-            controller.setControllers(controllers, images: images)
-            return controller
-        }
+        let controller = MenuBarController()
+        controller.setControllers(controllers, images: images)
+        return controller
     }
+}
 
-    final class MenuBarControllerPreview: PreviewProvider {
-        static var previews: some View {
-            MenuBarControllerCompat()
-                .edgesIgnoringSafeArea(.all)
-        }
+final class MenuBarControllerPreview: PreviewProvider {
+    static var previews: some View {
+        MenuBarControllerCompat()
+            .edgesIgnoringSafeArea(.all)
     }
+}
 #endif

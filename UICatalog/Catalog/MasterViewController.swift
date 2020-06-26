@@ -3,8 +3,9 @@ import UIKit
 class MasterViewController: UITableViewController {
     // MARK: Private properties
 
-    private let catalog = [
+    private let catalog: [(name: String, class: UIViewController.Type)] = [
         (name: "Menu Bar", class: MenuViewController.self),
+        (name: "Trailer View", class: TrailerViewController.self),
     ]
 
     // MARK: Lifecycle

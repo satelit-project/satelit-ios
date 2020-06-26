@@ -13,9 +13,6 @@ let package = Package(
     ],
     dependencies: [],
     targets: [
-        .target(
-            name: "SatelitUI",
-            dependencies: []
-        ),
+        .target(name: "SatelitUI"),
     ]
 )

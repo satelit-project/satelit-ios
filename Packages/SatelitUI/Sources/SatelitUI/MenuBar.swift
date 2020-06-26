@@ -26,14 +26,7 @@ public final class MenuBarItem {
 
     /// Tint color to use when the item is deselected.
     fileprivate var deselectedColor: UIColor {
-        UIColor { traits in
-            if traits.userInterfaceStyle == .dark {
-                return .systemGray2
-            }
-
-            // TODO: change color for the light scheme
-            return .green
-        }
+        .systemGray2
     }
 
     /// Creates a new menu item to show in a menu bar.
@@ -240,39 +233,39 @@ private final class MenuBarItemView: UIImageView {
 // MARK: - Previews
 
 #if DEBUG
-    private final class MenuBarCompat: UIViewRepresentable {
-        func updateUIView(_: UIView, context _: Context) {}
+private final class MenuBarCompat: UIViewRepresentable {
+    func updateUIView(_: UIView, context _: Context) {}
 
-        func makeUIView(context _: Context) -> UIView {
-            let items = [
-                MenuBarItem(image: UIImage(systemName: "globe")!),
-                MenuBarItem(image: UIImage(systemName: "list.bullet.below.rectangle")!),
-                MenuBarItem(image: UIImage(systemName: "magnifyingglass")!),
-                MenuBarItem(image: UIImage(systemName: "person")!),
-            ]
+    func makeUIView(context _: Context) -> UIView {
+        let items = [
+            MenuBarItem(image: UIImage(systemName: "globe")!),
+            MenuBarItem(image: UIImage(systemName: "list.bullet.below.rectangle")!),
+            MenuBarItem(image: UIImage(systemName: "magnifyingglass")!),
+            MenuBarItem(image: UIImage(systemName: "person")!),
+        ]
 
-            let menu = MenuBar(items: items)
-            menu.translatesAutoresizingMaskIntoConstraints = false
+        let menu = MenuBar(items: items)
+        menu.translatesAutoresizingMaskIntoConstraints = false
 
-            let container = UIView()
-            container.backgroundColor = .systemBackground
-            container.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            container.addSubview(menu)
+        let container = UIView()
+        container.backgroundColor = .systemBackground
+        container.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        container.addSubview(menu)
 
-            NSLayoutConstraint.activate([
-                menu.centerXAnchor.constraint(equalTo: container.centerXAnchor),
-                menu.centerYAnchor.constraint(equalTo: container.centerYAnchor),
-            ])
+        NSLayoutConstraint.activate([
+            menu.centerXAnchor.constraint(equalTo: container.centerXAnchor),
+            menu.centerYAnchor.constraint(equalTo: container.centerYAnchor),
+        ])
 
-            return container
-        }
+        return container
     }
+}
 
-    struct RoundedTabBarPreview: PreviewProvider {
-        static var previews: some View {
-            MenuBarCompat()
-                .environment(\.colorScheme, .dark)
-                .edgesIgnoringSafeArea(.all)
-        }
+struct RoundedTabBarPreview: PreviewProvider {
+    static var previews: some View {
+        MenuBarCompat()
+            .environment(\.colorScheme, .dark)
+            .edgesIgnoringSafeArea(.all)
     }
+}
 #endif
