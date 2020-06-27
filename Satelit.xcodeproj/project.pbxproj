@@ -18,6 +18,9 @@
 		9B6063B52470D6D9008C9395 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6063B42470D6D9008C9395 /* SceneDelegate.swift */; };
 		9B6063B92470D6DB008C9395 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B6063B82470D6DB008C9395 /* Assets.xcassets */; };
 		9B6063BF2470D6DB008C9395 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B6063BD2470D6DB008C9395 /* LaunchScreen.storyboard */; };
+		9BAD218824A71788003368E8 /* AiringCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAD218724A71788003368E8 /* AiringCardViewController.swift */; };
+		9BAD218B24A717E6003368E8 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 9BAD218A24A717E6003368E8 /* Kingfisher */; };
+		9BAD218E24A71806003368E8 /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAD218D24A71806003368E8 /* ImageProvider.swift */; };
 		9BD9747224A6271500FE58E3 /* TrailerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD9747124A6271500FE58E3 /* TrailerViewController.swift */; };
 		9BF6DC0324A39737007207B6 /* SatelitUI in Frameworks */ = {isa = PBXBuildFile; productRef = 9BF6DC0224A39737007207B6 /* SatelitUI */; };
 /* End PBXBuildFile section */
@@ -63,6 +66,8 @@
 		9B6063B82470D6DB008C9395 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9B6063BE2470D6DB008C9395 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9B6063C02470D6DB008C9395 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9BAD218724A71788003368E8 /* AiringCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AiringCardViewController.swift; sourceTree = "<group>"; };
+		9BAD218D24A71806003368E8 /* ImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
 		9BD9747124A6271500FE58E3 /* TrailerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerViewController.swift; sourceTree = "<group>"; };
 		9BEE992D248CB2EF00F7B71C /* Net */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Net; sourceTree = "<group>"; };
 		9BF3BC34248363E3009D4471 /* Proto */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Proto; sourceTree = "<group>"; };
@@ -74,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BAD218B24A717E6003368E8 /* Kingfisher in Frameworks */,
 				9BF6DC0324A39737007207B6 /* SatelitUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -113,6 +119,7 @@
 				9B2188132495D87F00725176 /* AppDelegate.swift */,
 				9B2188152495D87F00725176 /* SceneDelegate.swift */,
 				9B2188272495D9AC00725176 /* Catalog */,
+				9BAD218C24A717F7003368E8 /* Common */,
 				9B2188312495E36200725176 /* Resources */,
 			);
 			path = UICatalog;
@@ -121,7 +128,7 @@
 		9B2188272495D9AC00725176 /* Catalog */ = {
 			isa = PBXGroup;
 			children = (
-				9BD9747024A6270000FE58E3 /* Trailer */,
+				9BD9747024A6270000FE58E3 /* Home */,
 				9B2188282495D9B800725176 /* Menu */,
 				9B2188172495D87F00725176 /* MasterViewController.swift */,
 			);
@@ -195,12 +202,21 @@
 			path = Satelit;
 			sourceTree = "<group>";
 		};
-		9BD9747024A6270000FE58E3 /* Trailer */ = {
+		9BAD218C24A717F7003368E8 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				9BAD218D24A71806003368E8 /* ImageProvider.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		9BD9747024A6270000FE58E3 /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				9BD9747124A6271500FE58E3 /* TrailerViewController.swift */,
+				9BAD218724A71788003368E8 /* AiringCardViewController.swift */,
 			);
-			path = Trailer;
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,6 +238,7 @@
 			name = UICatalog;
 			packageProductDependencies = (
 				9BF6DC0224A39737007207B6 /* SatelitUI */,
+				9BAD218A24A717E6003368E8 /* Kingfisher */,
 			);
 			productName = UICatalog;
 			productReference = 9B2188112495D87F00725176 /* UICatalog.app */;
@@ -272,6 +289,9 @@
 				Base,
 			);
 			mainGroup = 9B6063A62470D6D9008C9395;
+			packageReferences = (
+				9BAD218924A717E6003368E8 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 9B6063B02470D6D9008C9395 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -313,6 +333,8 @@
 				9B21882A2495D9D800725176 /* MenuViewController.swift in Sources */,
 				9B2188162495D87F00725176 /* SceneDelegate.swift in Sources */,
 				9BD9747224A6271500FE58E3 /* TrailerViewController.swift in Sources */,
+				9BAD218824A71788003368E8 /* AiringCardViewController.swift in Sources */,
+				9BAD218E24A71806003368E8 /* ImageProvider.swift in Sources */,
 				9B2188182495D87F00725176 /* MasterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -574,7 +596,23 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		9BAD218924A717E6003368E8 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.14.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
+		9BAD218A24A717E6003368E8 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9BAD218924A717E6003368E8 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		9BF6DC0224A39737007207B6 /* SatelitUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SatelitUI;

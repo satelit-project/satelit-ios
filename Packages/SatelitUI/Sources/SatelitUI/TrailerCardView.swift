@@ -15,30 +15,14 @@ public protocol Trailer {
     var description: String { get }
 }
 
-/// An object which can download trailer previews and set them to an image view..
-public protocol TrailerPreviewDownloader {
-    /// Downloads a preview image  from the provided `url` and set's it to the `imageView` or clears it if `url` is `nil`.
-    ///
-    /// It's expected that the method will be async, will handle image caching and download cancellations in cases
-    /// when it's called multiple times for the same image view.
-    func setImage(from url: URL?, to imageView: UIImageView)
-}
-
-// MARK: - Trailer View
+// MARK: - Card
 
 /// A view that displays a single show trailer.
-public final class TrailerView: UIView {
-    // MARK: Properties
-
-    /// The trailer to display or `nil` to show nothing.
-    public var trailer: Trailer? {
-        didSet { update(with: trailer) }
-    }
-
-    // MARK: Properties
+public final class TrailerCardView: UIView {
+    // MARK: Private properties
 
     /// Object that handles trailer's preview images downloads.
-    private let previewDownloader: TrailerPreviewDownloader
+    private let previewDownloader: ImageProvider
 
     /// Image view to display trailer's preview image.
     private lazy var previewView: UIImageView = {
@@ -70,7 +54,7 @@ public final class TrailerView: UIView {
 
     // MARK: Init & deinit
 
-    public init(previewDownloader: TrailerPreviewDownloader) {
+    public init(previewDownloader: ImageProvider) {
         self.previewDownloader = previewDownloader
         super.init(frame: .zero)
 
@@ -80,6 +64,15 @@ public final class TrailerView: UIView {
     @available(*, unavailable)
     required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    // MARK: Public methods
+
+    /// Sets `trailer` to display.
+    public func setTrailer(_ trailer: Trailer?) {
+        previewDownloader.setImage(from: trailer?.previewURL, to: previewView)
+        titleLabel.text = trailer?.title
+        descriptionLabel.text = trailer?.description
     }
 
     // MARK: Private methods
@@ -92,38 +85,34 @@ public final class TrailerView: UIView {
         addSubview(descriptionLabel)
         addSubview(playButton)
 
-        layer.cornerRadius = 10
+        layer.cornerRadius = Metrics.Card.cornerRadius
         layer.cornerCurve = .continuous
         clipsToBounds = true
         backgroundColor = .secondarySystemBackground
 
         // now layout everything (ｰ ｰ;)
         NSLayoutConstraint.activate([
-            previewView.leftAnchor.constraint(equalTo: leftAnchor),
+            previewView.leadingAnchor.constraint(equalTo: leadingAnchor),
             previewView.topAnchor.constraint(equalTo: topAnchor),
-            previewView.rightAnchor.constraint(equalTo: rightAnchor),
-            previewView.bottomAnchor.constraint(equalTo: titleLabel.topAnchor, constant: -12),
+            previewView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            previewView.bottomAnchor.constraint(equalTo: titleLabel.topAnchor, constant: -Metrics.Card.edgeOffset),
 
             playButton.centerXAnchor.constraint(equalTo: previewView.centerXAnchor),
             playButton.centerYAnchor.constraint(equalTo: previewView.centerYAnchor),
             playButton.widthAnchor.constraint(equalToConstant: 60),
             playButton.heightAnchor.constraint(equalToConstant: 60),
 
-            titleLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 12),
-            titleLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: 12),
-            titleLabel.bottomAnchor.constraint(equalTo: descriptionLabel.topAnchor, constant: -2),
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Metrics.Card.edgeOffset),
+            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: Metrics.Card.edgeOffset),
+            titleLabel.bottomAnchor.constraint(
+                equalTo: descriptionLabel.topAnchor,
+                constant: -Metrics.Card.verticalNextLineOffset
+            ),
 
-            descriptionLabel.leftAnchor.constraint(equalTo: titleLabel.leftAnchor),
-            descriptionLabel.rightAnchor.constraint(equalTo: titleLabel.rightAnchor),
-            descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -12),
+            descriptionLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
+            descriptionLabel.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
+            descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -Metrics.Card.edgeOffset),
         ])
-    }
-
-    /// Updates appearance with the provided `trailer`.
-    private func update(with trailer: Trailer?) {
-        previewDownloader.setImage(from: trailer?.previewURL, to: previewView)
-        titleLabel.text = trailer?.title
-        descriptionLabel.text = trailer?.description
     }
 
     // MARK: Factories
@@ -139,28 +128,11 @@ public final class TrailerView: UIView {
 // MARK: - Previews
 
 #if DEBUG
-private final class TrailerViewCompat: UIViewRepresentable {
+private final class TrailerCardCompat: UIViewRepresentable {
     struct DemoTrailer: Trailer {
         let previewURL: URL
         let title: String
         let description: String
-    }
-
-    final class Downloader: TrailerPreviewDownloader {
-        func setImage(from url: URL?, to imageView: UIImageView) {
-            guard url != nil else {
-                imageView.image = nil
-                return
-            }
-
-            let renderer = UIGraphicsImageRenderer(size: .init(width: 300, height: 180))
-            imageView.image = renderer.image { ctx in
-                UIColor.systemRed.setFill()
-                ctx.fill(CGRect(x: 0, y: 0, width: 200, height: 190))
-                UIColor.systemBlue.setFill()
-                ctx.fill(CGRect(x: 100, y: 0, width: 200, height: 190), blendMode: .exclusion)
-            }
-        }
     }
 
     private let trailer: DemoTrailer
@@ -170,9 +142,9 @@ private final class TrailerViewCompat: UIViewRepresentable {
     }
 
     func makeUIView(context _: Context) -> UIView {
-        let view = TrailerView(previewDownloader: Downloader())
+        let view = TrailerCardView(previewDownloader: PreviewsImageProvider(imageSize: .init(width: 300, height: 180)))
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.trailer = trailer
+        view.setTrailer(trailer)
 
         let container = UIView()
         container.backgroundColor = .systemBackground
@@ -190,15 +162,15 @@ private final class TrailerViewCompat: UIViewRepresentable {
     func updateUIView(_: UIViewType, context _: Context) {}
 }
 
-final class TrailerViewPreview: PreviewProvider {
+final class TrailerCardPreview: PreviewProvider {
     static var previews: some SwiftUI.View {
-        let trailer = TrailerViewCompat.DemoTrailer(
+        let trailer = TrailerCardCompat.DemoTrailer(
             previewURL: URL(string: "https://bit.ly/2B2qC01")!,
             title: "BNA: Brand New Animal",
             description: "TV, 13 Ep, 2020"
         )
 
-        return TrailerViewCompat(trailer: trailer)
+        return TrailerCardCompat(trailer: trailer)
             .edgesIgnoringSafeArea(.all)
             .environment(\.colorScheme, .dark)
     }

@@ -5,7 +5,8 @@ class MasterViewController: UITableViewController {
 
     private let catalog: [(name: String, class: UIViewController.Type)] = [
         (name: "Menu Bar", class: MenuViewController.self),
-        (name: "Trailer View", class: TrailerViewController.self),
+        (name: "Trailer Card", class: TrailerViewController.self),
+        (name: "Airing Card", class: AiringCardViewController.self),
     ]
 
     // MARK: Lifecycle

@@ -151,9 +151,15 @@ public final class MenuBar: UIView {
         contentView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            contentView.leftAnchor.constraint(equalTo: blurView.contentView.leftAnchor, constant: verticalSpacing),
+            contentView.leadingAnchor.constraint(
+                equalTo: blurView.contentView.leadingAnchor,
+                constant: verticalSpacing
+            ),
             contentView.topAnchor.constraint(equalTo: blurView.contentView.topAnchor, constant: horizontalSpacing),
-            contentView.rightAnchor.constraint(equalTo: blurView.contentView.rightAnchor, constant: -verticalSpacing),
+            contentView.trailingAnchor.constraint(
+                equalTo: blurView.contentView.trailingAnchor,
+                constant: -verticalSpacing
+            ),
             contentView.bottomAnchor.constraint(
                 equalTo: blurView.contentView.bottomAnchor,
                 constant: -horizontalSpacing
