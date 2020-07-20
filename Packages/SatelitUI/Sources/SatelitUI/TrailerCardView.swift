@@ -85,7 +85,7 @@ public final class TrailerCardView: UIView {
         addSubview(descriptionLabel)
         addSubview(playButton)
 
-        layer.cornerRadius = Metrics.Card.cornerRadius
+        layer.cornerRadius = Metrics.Common.cornerRadius
         layer.cornerCurve = .continuous
         clipsToBounds = true
         backgroundColor = .secondarySystemBackground
@@ -95,23 +95,23 @@ public final class TrailerCardView: UIView {
             previewView.leadingAnchor.constraint(equalTo: leadingAnchor),
             previewView.topAnchor.constraint(equalTo: topAnchor),
             previewView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            previewView.bottomAnchor.constraint(equalTo: titleLabel.topAnchor, constant: -Metrics.Card.edgeOffset),
+            previewView.bottomAnchor.constraint(equalTo: titleLabel.topAnchor, constant: -Metrics.Common.edgeOffset),
 
             playButton.centerXAnchor.constraint(equalTo: previewView.centerXAnchor),
             playButton.centerYAnchor.constraint(equalTo: previewView.centerYAnchor),
             playButton.widthAnchor.constraint(equalToConstant: 60),
             playButton.heightAnchor.constraint(equalToConstant: 60),
 
-            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Metrics.Card.edgeOffset),
-            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: Metrics.Card.edgeOffset),
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Metrics.Common.edgeOffset),
+            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: Metrics.Common.edgeOffset),
             titleLabel.bottomAnchor.constraint(
                 equalTo: descriptionLabel.topAnchor,
-                constant: -Metrics.Card.verticalNextLineOffset
+                constant: -Metrics.Common.verticalNextLineOffset
             ),
 
             descriptionLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
             descriptionLabel.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
-            descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -Metrics.Card.edgeOffset),
+            descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -Metrics.Common.edgeOffset),
         ])
     }
 

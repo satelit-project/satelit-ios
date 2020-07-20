@@ -31,7 +31,7 @@ public final class AiringCardView: UIView {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.clipsToBounds = true
-        view.layer.cornerRadius = Metrics.Card.cornerRadius / 2
+        view.layer.cornerRadius = Metrics.Common.cornerRadius / 2
         view.contentMode = .scaleAspectFill
         return view
     }()
@@ -94,30 +94,30 @@ public final class AiringCardView: UIView {
         addSubview(progressView)
         addSubview(ratingView)
 
-        layer.cornerRadius = Metrics.Card.cornerRadius
+        layer.cornerRadius = Metrics.Common.cornerRadius
         backgroundColor = .secondarySystemBackground
 
         NSLayoutConstraint.activate([
-            posterView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Metrics.Card.edgeOffset),
-            posterView.topAnchor.constraint(equalTo: topAnchor, constant: Metrics.Card.edgeOffset),
-            posterView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -Metrics.Card.edgeOffset),
+            posterView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Metrics.Common.edgeOffset),
+            posterView.topAnchor.constraint(equalTo: topAnchor, constant: Metrics.Common.edgeOffset),
+            posterView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -Metrics.Common.edgeOffset),
             posterView.trailingAnchor.constraint(
                 equalTo: titleLabel.leadingAnchor,
-                constant: -Metrics.Card.innerInterItemOffset
+                constant: -Metrics.Common.innerInterItemOffset
             ),
             posterView.widthAnchor.constraint(equalToConstant: 70),
 
             titleLabel.topAnchor.constraint(equalTo: posterView.topAnchor),
-            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Metrics.Card.edgeOffset),
+            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Metrics.Common.edgeOffset),
 
             progressView.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
-            progressView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Metrics.Card.edgeOffset),
+            progressView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Metrics.Common.edgeOffset),
             progressView.topAnchor.constraint(
                 equalTo: titleLabel.bottomAnchor,
-                constant: Metrics.Card.verticalNextLineOffset
+                constant: Metrics.Common.verticalNextLineOffset
             ),
 
-            ratingView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Metrics.Card.edgeOffset),
+            ratingView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Metrics.Common.edgeOffset),
             ratingView.bottomAnchor.constraint(equalTo: posterView.bottomAnchor),
         ])
     }
@@ -189,7 +189,7 @@ private final class ShowProgressView: UIView {
 
             trackingView.leadingAnchor.constraint(
                 equalTo: progressLabel.trailingAnchor,
-                constant: Metrics.Card.horizontalTextNonTextOffset
+                constant: Metrics.Common.horizontalTextImageOffset
             ),
             trackingView.centerYAnchor.constraint(equalTo: progressLabel.centerYAnchor),
             trackingView.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor),
@@ -254,7 +254,7 @@ private final class ShowRatingView: UIView {
             starView.leadingAnchor.constraint(equalTo: leadingAnchor),
             starView.trailingAnchor.constraint(
                 equalTo: ratingLabel.leadingAnchor,
-                constant: -Metrics.Card.horizontalTextNonTextOffset
+                constant: -Metrics.Common.horizontalTextImageOffset
             ),
             starView.firstBaselineAnchor.constraint(equalTo: ratingLabel.firstBaselineAnchor),
 

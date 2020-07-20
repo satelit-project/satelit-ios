@@ -7,6 +7,7 @@ class MasterViewController: UITableViewController {
         (name: "Menu Bar", class: MenuViewController.self),
         (name: "Trailer Card", class: TrailerViewController.self),
         (name: "Airing Card", class: AiringCardViewController.self),
+        (name: "Rounded Button", class: RoundedButtonViewController.self),
     ]
 
     // MARK: Lifecycle
