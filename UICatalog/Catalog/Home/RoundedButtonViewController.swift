@@ -5,7 +5,7 @@ final class RoundedButtonViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let button = RoundedButton()
+        let button = RoundedCardButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.text = "Hello"
         button.icon = UIImage(systemName: "heart")
