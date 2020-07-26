@@ -1,2 +1,4 @@
 **/xcuserdata
+.build
+.idea
 .DS_Store

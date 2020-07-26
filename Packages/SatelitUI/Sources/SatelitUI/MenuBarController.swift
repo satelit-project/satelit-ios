@@ -21,7 +21,7 @@ open class MenuBarController: UIViewController {
 
     /// Sets root controllers of the menu bar controller.
     ///
-    /// Each root controller must have a corresponing `UIImage` object to display on the menu. The number of images
+    /// Each root controller must have a corresponding `UIImage` object to display on the menu. The number of images
     /// must be equal to the number of root controllers.
     /// - Parameters:
     ///   - controllers: Array of root controller to manage.
